@@ -1,0 +1,21 @@
+.message-view {
+    overflow-y: auto;
+    height: 50vh;
+    border: 1px solid #ccc;
+    margin: 20px 0;
+
+}
+.send-icon{
+	cursor: pointer;
+}
+
+.textboxmessage{
+	width:90%;
+}
+.textBoxName{
+	width: 20%;
+}
+
+#root{
+	padding: 0 40px;
+}
