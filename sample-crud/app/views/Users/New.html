@@ -1,0 +1,34 @@
+{{set . "title" "Users"}} {{template "header.html" .}}
+{{if .flash}}<div class="row text-center"><div class="mx-auto">{{template "flash.html" .}}</div></div>{{end}}
+<div class="row my-3">
+        <h1>Add Users</h1><br>
+        <form action="{{url "Users.Save"}}" method="POST" class="mx-auto">
+            <div class="row mt-3">
+                <div class="col-md-6 col-xs-12">{{with $field := field "user.Username" .}}Username<br><input type="text" value="{{$field.Flash}}" name="{{$field.Name}}" size="60" class="form-control"><span>{{$field.Error}}</span> {{end}}</div>
+                <div class="col-md-6 col-xs-12">{{with $field := field "user.Email" .}}Email<br><input type="text" value="{{$field.Flash}}" name="{{$field.Name}}" size="60" class="form-control">
+                <span>{{$field.Error}}</span>{{end}}</div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-6 col-xs-12">{{with $field := field "password" .}}Password<br><input type="password" value="{{$field.Flash}}" name="{{$field.Name}}" size="60" class="form-control"><span>{{$field.Error}}</span> {{end}}</div>
+                <div class="col-md-6 col-xs-12">{{with $field := field "cekpassword" .}}Verify Password<br><input type="password" value="{{$field.Flash}}" name="{{$field.Name}}" size="60" class="form-control">
+                <span>{{$field.Error}}</span>{{end}}</div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6 col-xs-12">{{with $field := field "user.Firstname" .}}First Name<br><input type="text" value="{{$field.Flash}}" name="{{$field.Name}}" size="60" class="form-control"><span>{{$field.Error}}</span> {{end}}</div>
+                <div class="col-md-6 col-xs-12">{{with $field := field "user.Lastname" .}}Last Name<br><input type="text" value="{{$field.Flash}}" name="{{$field.Name}}" size="60" class="form-control">
+                <span>{{$field.Error}}</span>{{end}}</div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-6 col-xs-12">{{with $field := field "user.Usertype" .}}User Type<br><select name="{{$field.Name}}" class="form-control"><option>Choose</option><option value="1">Admin</option><option value="2">Staff</option></select><span>{{$field.Error}}</span> {{end}}</div>
+                <div class="col-md-6 col-xs-12">{{with $field := field "user.Userstatus" .}}User Status<br><select name="{{$field.Name}}" class="form-control"><option>Choose</option><option value="1">Active</option><option value="0">Inactive</option></select>
+                <span>{{$field.Error}}</span>{{end}}</div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-6 col-xs-12">&nbsp;</div>  
+                <div class="col-md-6 col-xs-12 text-right mt-3"><input type="submit" value="SAVE &raquo;" class="btn btn-primary"></div>
+            </div>
+        </form>
+</div>{{template "footer.html" .}}

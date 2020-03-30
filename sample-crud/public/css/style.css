@@ -1,0 +1,151 @@
+.text-left a.active {     
+    background-color: #007bff;
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 5px;
+}
+.dashboardicon .card { border: none; text-align: center; padding: 20px; box-shadow: 0 0 10px #0000004a; background: #f2f2f2; opacity: .6; -moz-transition: all .4s ease; transition: all .4s ease; }
+.dashboardicon .card:hover { opacity: 1 }
+.dashboardicon .card a { color: #000; font-weight: bold; display: block; }
+.dashboardicon .card img { max-width: 50%; }
+.dashboardicon .card h3 { font-size: 16px; text-align: center; min-height: 40px;}
+.dashboardicon .card a:hover { text-decoration: none; }
+ .tplist,
+.tplist{
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+	font-size: 13px;
+	vertical-align: middle
+}
+.search-form .form-group input.form-control::-webkit-input-placeholder{
+  display:none;
+}
+.search-form .form-group input.form-control::-moz-placeholder{
+  display:none;
+}
+.edit-input, .button-update, .button-close {
+  display:none;
+}
+.navbar-right{
+  min-width:450px; /*or I can probably just use columns*/
+}
+.navbar-right form{
+  width:100%;
+}
+.form-group{
+  position:relative;
+  width:0%;
+  min-width:60px;
+  height:60px;
+  overflow:hidden;
+  transition: width 1s;
+  backface-visibility:hidden;
+}
+.form-group input.form-control{
+  position:absolute;
+  top:0;
+  right:0;
+  outline:none;
+  width:100%;
+  height:60px;
+  margin:0;
+  z-index:10;
+}
+input[type="text"].form-control{
+  -webkit-appearence:none;
+  -webkit-border-radius:0;
+}
+.form-control-submit,
+.search-label{
+  width:60px;
+  height:60px;
+  position:absolute;
+  right:0;
+  top:0;
+  padding:0;
+  margin:0;
+  text-align:center;
+  cursor:pointer;
+  line-height:60px;
+  background:white;
+}
+.form-control-submit{
+  background:#fff; /*stupid IE*/
+  opacity: 0;
+  color:transparent;
+  border:none;
+  outline:none;
+  z-index:-1;
+}
+.search-label{
+  z-index:90;
+  color: #fff;
+}
+.form-group.sb-search-open,
+.no-js .sb-search-open{
+  width:100%;
+  margin-top:10px;
+}
+.form-group.sb-search-open .search-label,
+.no-js .sb-search .search-label {
+    background: #007bff;
+    color: #fff;
+    z-index: 11;
+}
+.form-group.sb-search-open .form-control-submit,
+.no-js .form-control .form-control-submit {
+    z-index: 90;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.trim-oneline{
+  overflow: hidden; text-overflow: ellipsis; display: -webkit-box; margin: 0; max-height: 32px; -webkit-line-clamp: 1; -webkit-box-orient: vertical; 
+}
+
+
+#pplistreport td { font-size: 12px; padding: 4px; }
+#pplistreport th { font-size: 10px; padding: 2px; }
+#tplistreport td { font-size: 12px; padding: 4px; }
+#tplistreport th { font-size: 10px; padding: 2px; }
+
+#pplistreport td.repbold{font-weight: bold;}
+#tplistreport td.repbold{font-weight: bold;}
+/* #pplist td{padding-left: 0px;} */
+/* #pplist.datatable{    table-layout: fixed ;} */
+#pplist_wrapper table{table-layout: fixed ;}
+@media (min-width:1200px) {
+  .container { max-width: 96%; }
+  }
+.view-emp{
+  max-width: 540px;
+  margin: 0 auto;
+}  
+td{
+  /* border: 1px solid #f00; */
+}
+#view-emp-temp { width: 500px; margin: 0 auto; }
+#view-emp-temp td{padding: 10px;}
+#temp-add .form-control{
+  height: 10px;
+}
+#temp-form .form-control{
+  height: 25px;
+  line-height: normal;
+  
+}
+#temp-form .row{
+  margin-bottom: 5px;
+}
+#temp-form .ui-select-wrap { height: 30px; }
+#temp-form .ui-select-wrap > .selected span { padding: 2px 12px; }
+#perm-form .form-control{
+  height: 30px;
+  line-height: normal;
+  
+}
+#perm-form .row{
+  margin-bottom: 5px;
+}
+#perm-form .ui-select-wrap { height: 30px; }
+#perm-form .ui-select-wrap > .selected span { padding: 2px 12px; }

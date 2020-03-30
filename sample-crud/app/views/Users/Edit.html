@@ -1,0 +1,30 @@
+{{set . "title" "Users"}} {{template "header.html" .}}
+{{if .flash}}<div class="row text-center"><div class="mx-auto">{{template "flash.html" .}}</div></div>{{end}}
+<div class="row my-3">
+        <h1>Edit Users</h1><br>
+		<form action="{{url "Users.Update"}}" method="POST" class="mx-auto">
+			{{with .userobj}}
+        	<input type="hidden" value="{{.ID}}" name="id">
+			<div class="row mt-3">
+		    <div class="col-md-6 col-xs-12">First Name<br><input type="text" value="{{.Firstname}}" name="Firstname" size="60" class="form-control"></div>
+		    <div class="col-md-6 col-xs-12">Last Name<br><input type="text" value="{{.Lastname}}" name="Lastname" size="60" class="form-control"></div>
+		    </div>
+
+			<div class="row mt-3">
+		    <div class="col-md-6 col-xs-12">Password<br><input type="password" name="password" size="60" class="form-control"></div>
+		    <div class="col-md-6 col-xs-12">Verify Password<br><input type="password" name="cekpassword" size="60" class="form-control"></div>
+		    </div>
+
+		    <div class="row mt-3">
+		    <div class="col-md-6 col-xs-12">Email<br><input type="text" value="{{.Email}}" name="Email" class="form-control"></div>
+		    <div class="col-md-6 col-xs-12">User Type<br><select name="Usertype" class="form-control"><option>Choose</option><option value="1" {{if eq .Usertype "1"}} selected="selected"{{end}}>Admin</option><option value="2" {{if eq .Usertype "2"}} selected="selected"{{end}}>Staff</option></select></div>
+		    </div>
+			
+			<div class="row mt-3">
+		    <div class="col-md-6 col-xs-12">User Status<br><select name="Userstatus" class="form-control"><option>Choose</option><option value="1" {{if eq .Userstatus "1"}} selected="selected"{{end}}>Active</option><option value="0" {{if eq .Userstatus "0"}} selected="selected"{{end}}>Inactive</option></select></div>
+		    <div class="col-md-6 col-xs-12 text-right mt-3"><input type="submit" value="UPDATE &raquo;" class="btn btn-primary"></div>
+		    </div>
+		    {{end}}
+		</form>
+</div>
+{{template "footer.html" .}}

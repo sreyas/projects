@@ -1,0 +1,14 @@
+  {{if eq .RunMode "dev"}}
+    {{template "debug.html" .}}
+  {{end}}
+	</div>
+	<script type="text/javascript" language="javascript">
+	$(document).ready(function() {
+
+		$('.datepicker').datepicker({
+		    format: 'mm-dd-yyyy'
+		})
+	});
+	</script>
+  </body>
+</html>

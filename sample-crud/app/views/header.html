@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>{{.title}}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="stylesheet" type="text/css" href="/public/css/bootstrap-3.3.6.min.css">-->
+  <!--<script src="/public/js/jquery-2.2.4.min.js"></script>
+    <script src="/public/js/bootstrap-3.3.6.min.js"></script>-->
+  <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/bootstrap-datepicker.css">
+  <link rel="shortcut icon" type="image/png" href="/public/img/favicon.png">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/public/css/editable-select.css">
+
+  <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+
+  <script src="/public/js/jquery-3.3.1.js"></script>
+  <script src="/public/js/bootstrap.min.js"></script>
+  <script src="/public/js/jquery.dataTables.min.js"></script>
+  <script src="/public/js/dataTables.bootstrap4.min.js"></script>
+  <script src="/public/js/bootstrap-datepicker.js"></script>
+  <script src="/public/js/jquery-editable-select.js"></script>
+  <script src="/public/js/dataTables.buttons.min.js"></script>
+  <script src="/public/js/jszip.min.js"></script>
+  <script src="/public/js/pdfmake.min.js"></script>
+  <script src="/public/js/vfs_fonts.js"></script>
+  <script src="/public/js/buttons.html5.min.js"></script>
+  <script src="/public/js/buttons.html5.js"></script>
+
+  {{range .moreStyles}}
+  <link rel="stylesheet" type="text/css" href="/public/{{.}}">
+  {{end}}
+  {{range .moreScripts}}
+  <script src="/public/{{.}}" type="text/javascript" charset="utf-8"></script>
+  {{end}}
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="row my-3">
+  
+      <div class="col-md-4 xs-12 text-right">
+
+        <form class="search-form" role="search" method="POST">
+          <div class="form-group pull-right">
+            <input type="text" name="{{$fielditem}}" class="form-control searchbox" placeholder="Name...">
+            <button type="submit" class="form-control form-control-submit">Submit</button>
+            <span class="search-label"><i class="fa fa-check"></i></span>
+          </div>
+        </form>
+      </div>
+    </div>

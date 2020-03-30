@@ -1,0 +1,18 @@
+{{set . "title" "Home"}} {{template "header.html" .}} {{if .flash}} <div class="row text-center my-3"><div class="mx-auto"> {{template "flash.html" .}} </div></div> {{end}}
+<div class="row my-3">
+<div class="col-md-6 col-xs-12 mx-auto">
+    <h1> Login </h1>
+</div>
+</div>
+<div class="row my-3">
+
+<div class="col-md-6 col-xs-12 mx-auto">
+    <form action="{{url "App.Login"}}" method="POST">
+        <div class="tol-md-12 col-xs-12"><input class="form-control" type="text" name="username" placeholder="username"></div><br>
+        <div class="ol-md-12 col-xs-12"><input class="form-control" type="password" name="password" placeholder="password"></div><br>
+        <div class="row"><div class="col-md-6 col-xs-12 text-left"><input type="checkbox" name="remember" value="true"> <label>Stay logged in</label></div>
+        <div class="col-md-6 col-xs-12 text-right"><input class="btn btn-primary" type="submit" value="Login"></div></div>
+    </form>
+</div>
+</div>
+{{template "footer.html" .}}

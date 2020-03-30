@@ -1,0 +1,73 @@
+{{set . "title" "Users"}} {{template "header.html" .}}
+
+{{if .flash}}<div class="row text-center"><div class="mx-auto">{{template "flash.html" .}}</div></div>{{end}}
+<div class="row">
+<div class="col-md-12">
+    <h1>Users</h1><br>
+    <table class="table table-hover" id="pplist">
+        <thead>
+            <tr>
+                <th style="display: none;"></th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>User Type</th>
+                <th>User Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range $us := .user}}
+            <tr>
+                <td style="display: none;">{{$us.ID}}</td>
+                <td>{{$us.Username}}</td>
+                <td>{{$us.Email}}</td>
+                <td>{{$us.Firstname}}</td>
+                <td>{{$us.Lastname}}</td>          
+                <td>{{if eq $us.Usertype "2"}}Staff{{else}}Admin{{end}}</td>
+                <td>{{if eq $us.Userstatus "0"}}Inactive{{else}}Active{{end}}</td>
+                <td>
+                    <a href="{{url "Users.Edit" $us.ID}}">Edit</a>
+                    <a href="{{url "Users.Show" $us.ID}}">View</a>
+		            <a href="#ConfirmDelete" data-href="{{url "Users.Delete" $us.ID}}" class="trigger-btn" data-toggle="modal">Delete</a>
+
+                </td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</div>
+</div>
+
+<!-- Modal HTML -->
+<div id="ConfirmDelete" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">        
+                <h4 class="modal-title">Are you sure?</h4>  
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Do you really want to delete these records? This process cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-info" data-dismiss="modal">Cancel</a>
+                <a class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>     
+<script type="text/javascript" language="javascript">
+$(document).ready(function() {
+    $('#pplist').DataTable({
+       order:[0,"desc"]   
+    });
+} );
+$('#ConfirmDelete').on('show.bs.modal', function(e) {
+    $(this).find('.btn-danger').attr('href', $(e.relatedTarget).data('href'));
+});
+</script>
+
+
+{{template "footer.html" .}}
