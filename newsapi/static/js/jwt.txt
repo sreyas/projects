@@ -1,0 +1,27 @@
+var header = { "alg": "HS256", "typ": "JWT" };
+
+var secret = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.ImtvY2hpb25lc21hcnQxZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LkltdHZZMmhwYjI1bGMyMWhjblFpLlBjREUzMG54Q0lSX3NzRXlGTmVUX2pCRkp6NXUwMW95eGtyc3hBMXNaRzRrb2NoaW9uZXNtYXJ0MSI.jy6D_cWsUWBgVTeFRyyHMdbWGlyV2P2mrb3zPmqvOC8";
+
+function jwtEncodeDataOnediApp(payLoad) {
+    var stringifiedHeader = CryptoJS.enc.Utf8.parse(JSON.stringify(header));
+    var encodedHeader = base64url(stringifiedHeader);
+
+    var stringifiedData = CryptoJS.enc.Utf8.parse(JSON.stringify(payLoad));
+    var encodedData = base64url(stringifiedData);
+
+    var signature = encodedHeader + "." + encodedData;
+    signature = CryptoJS.HmacSHA256(signature, secret);
+    signature = base64url(signature);
+    enctpt = encodedHeader + "." + encodedData + "." + signature;
+    return enctpt;
+}
+
+function base64url(source) {
+    encodedSource = CryptoJS.enc.Base64.stringify(source);
+
+    encodedSource = encodedSource.replace(/=+$/, '');
+    encodedSource = encodedSource.replace(/\+/g, '-');
+    encodedSource = encodedSource.replace(/\//g, '_');
+
+    return encodedSource;
+}
