@@ -33,30 +33,7 @@ type InstagraMResponse struct {
 }
 
 func main() {
-	url := fmt.Sprintf("https://www.instagram.com/pranav__satheesh/?__a=1")
-	method := "GET"
 
-	client := &http.Client{}
-	req, err := http.NewRequest(method, url, nil)
-	if err != nil {
-		fmt.Println(err)
-
-	}
-
-	req.Header.Set("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36")
-	req.Header.Set("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
-	res, err := client.Do(req)
-
-	if err != nil {
-		panic(err)
-	}
-	defer res.Body.Close()
-
-	resultStruct := InstagraMResponse{}
-	body, err := ioutil.ReadAll(res.Body)
-
-	err = json.Unmarshal(body, &resultStruct)
-	log.Println(err)
 	r := gin.Default()
 	r.GET("/instahandle/:handle", func(c *gin.Context) {
 		log.Println(c.Param("handle"))
