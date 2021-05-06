@@ -6,6 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+//Mcommon BroadCast Details
+
 func main() {
 
 	r := gin.Default()
