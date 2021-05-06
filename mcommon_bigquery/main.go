@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Mcommons Details Insert into Google Bigquery
 func main() {
 
 	r := gin.Default()
